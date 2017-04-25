@@ -2,3 +2,5 @@
 2 commit af lokaverkefni.py 
 lagaði kóðan  frá því að ég var bara að brainstorma áfram og vinna
 í betur útlýtandi og skiljanlegri hóp af orðum og skipunum.
+
+3commit  buinn að skipta stokknum á milli tveggja spilara
