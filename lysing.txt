@@ -14,3 +14,5 @@ lagaði kóðan  frá því að ég var bara að brainstorma áfram og vinna
 6commit:farinn að bera saman eiginleika spila 
 
 7commit: spilið farið af stað og virkar
+
+8commit:byrjaður að vinna í jafntefli

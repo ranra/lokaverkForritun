@@ -5,7 +5,7 @@ tlisti=[]
 nlisti=[]
 nofn=[]
 hrutar=[]
-
+geymsla=[]
 player1=[]
 player2=[]
 
@@ -124,7 +124,7 @@ while flag:
 
                 flag=True
                 print("þú átt að gera")#valmynd fyrir spilin
-                gera=input("Yttu á eitthvað til að draga spil")
+                gera=input("enter til að draga spil")
                 print("\n")
                 print("Hrúturinn heitir ",player1[0].n)
                 print("1.Þyng í kílóum ",player1[0].t)
@@ -150,7 +150,7 @@ while flag:
 
                 if hlutur1[val] > hlutur2[val]:#ef þú ert með hærri einkunn
 
-                    print("hruturinn þinn var með hærri einkunn og þarmeð eignast þú hrútinn ",hlutur2[0])
+                    print("hrúturinn þinn var með hærri einkunn og þarmeð eignast þú hrútinn ",hlutur2[0])
                     player1.append(player2[0])#bætir við hjá þer
                     player1.append(player1[0])
                     player1.remove(player1[0])
@@ -161,7 +161,17 @@ while flag:
                     print(len(player2))
                     print("\n")
 
-                else :
+                if hlutur1[val]==hlutur2[val]:
+                    geymsla.append(player1[0])
+                    geymsla.append(player2[0])
+                    player1.remove(player1[0])
+                    player2.remove(player2[0])
+                    print("þið voruð jafnir", hlutur1[val], hlutur2[val])
+
+                    print(geymsla)
+                    tkast = 1
+
+                if hlutur2[val] > hlutur1[val]:
                     print("hrútur tölvunar var með hærri einkunn og þarmeð eignast hún hrútinn ", hlutur1[0])
                     player2.append(player1[0])  # bætir við hjá þer
                     player2.append(player2[0])
@@ -178,7 +188,7 @@ while flag:
             elif tkast==2:
 
                 flag = True
-                print("tölvan á að gera og dregur spil ")  # valmynd fyrir spilin
+                gera=input("tölvan á að gera og dregur spil..(enter til að halda áfram)")  # valmynd fyrir spilin
                 print("\n")
                 print("Hrúturinn heitir ", player2[0].n)
                 print("1.Þyng í kílóum ", player2[0].t)
@@ -200,7 +210,7 @@ while flag:
                 print("\n")
 
                 if hlutur2[val] > hlutur1[val]:
-                    print("hrutur tölvunar var með hærri einkunn og þarmeð eignast hún hrútinn ", hlutur1[0])
+                    print("hrútur tölvunar var með hærri einkunn og þarmeð eignast hún hrútinn ", hlutur1[0])
                     player2.append(player1[0])  # bætir við hjá þer
                     player2.append(player2[0])
                     player2.remove(player2[0])
@@ -210,8 +220,19 @@ while flag:
                     print(len(player2))
                     print("\n")
 
-                else:  # ef þú ert með hærri einkunn
-                    print("hruturinn þinn var með hærri einkunn og þarmeð eignast þú hrútinn ", hlutur2[0])
+                if hlutur1[val]==hlutur2[val]:
+                    geymsla.append(player1[0])
+                    geymsla.append(player2[0])
+                    player1.remove(player1[0])
+                    player2.remove(player2[0])
+                    print("þið voruð jafnir",hlutur1[val],hlutur2[val])
+
+                    print(geymsla)
+                    tkast=2
+
+
+                if hlutur2[val] < hlutur1[val]:  # ef þú ert með hærri einkunn
+                    print("hrúturinn þinn var með hærri einkunn og þarmeð eignast þú hrútinn ", hlutur2[0])
                     player1.append(player2[0])  # bætir við hjá þer
                     player1.append(player1[0])
                     player1.remove(player1[0])
