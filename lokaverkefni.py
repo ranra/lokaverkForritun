@@ -5,8 +5,8 @@ nlisti=[]
 nofn=[]
 hrutar=[]
 
-tolvan=[]
 player1=[]
+player2=[]
 
 
 
@@ -79,24 +79,27 @@ tolur.append(tlisti[-8:])#loopan skildi eftir seinustu 8 tölurnar svo ég redda
 
 
 t=0
-for i in range(52):
+for i in range(52):#bý til  hrúta spilin og læt þau í  lista
     hrutur=Hrutur(nofn[t],tolur[t][0],tolur[t][1],tolur[t][2],tolur[t][3],tolur[t][4],tolur[t][5],tolur[t][6],tolur[t][7])
     hrutar.append(hrutur)
-    t+=1
+    t+=1#nota teljara til að halda öllu saman
 
 
 
 stokkur=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51]#þetta eru öll spilin
 
-while len(player1)<26 :#tek 26 random spil  og læt í stokk eitt
-    a=len(stokkur)#hversu morg spil eru eftir í stokknum
-    rt=randrange(0,a)#random tala frá null og uppí fjölda spila
-    player1.append(hrutar[rt])#fyrsti stokkur fær random spil
+while len(stokkur)!=0 :#læt renna meðan stokkurinn er ekki tomur
+    a = len(stokkur)  # hversu morg spil eru eftir í stokknum
+    rt = randrange(0, a)  # random tala frá null og uppí fjölda spila
+    if len(player1)<26:
+        player1.append(hrutar[rt])#fyrsti stokkur fær 26 random spil
+        print(len(player1))
+    else:
+        player2.append(hrutar[rt])  # annar stokkur fær 26 random spil
+        print(len(player2))
+
 
     del stokkur[rt]#spilinu er eyttt úr stokknum
-    print(player1)
-    print(stokkur)
-    print (len(player1))
-    print(len(stokkur))
-
-
+print (len(stokkur))
+print(player1)
+print(player2)
