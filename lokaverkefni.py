@@ -47,7 +47,7 @@ for x in listi:
         nlisti.append(x)#tek nöfnin og set í annan lista
     t+=1
 
-tolur=list(map(float,tlisti))#breyti tölunum í float
+tlisti=list(map(float,tlisti))#breyti tölunum í float
 
 
 t=1
@@ -64,6 +64,7 @@ nofn.remove(x[-1])# tek út seinasta stak
 t=0
 tala=[]
 tolur=[]
+print(tolur)
 for x in tlisti:#set fram loopu með teljara til að ná saman 8 stökum og setja saman i lista inni lista
     if t<8:
         tala.append(x)
@@ -110,4 +111,36 @@ while svar!=3:
                 print(len(player2))
 
             del stokkur[rt]  # spilinu er eyttt úr stokknum
+
+        tkast=randint(1,2)#kastað uppá hver byrjar
+
+        if tkast==1:
+            flag=True
+            print("þú byrjar")
+            gera=input("Yttu á d til að draga spil")
+            if gera=="d":
+                print("Hrúturinn heitir ",player1[0].n)
+                print("1.Þyng í kílóum ",player1[0].t)
+                print("2.Mjólkurlagni dætra ", player1[0].mj)
+                print("3.Einkunn ullar ", player1[0].u)
+                print("4.fjöldi afkvæma ", player1[0].bo)
+                print("5.Einkunn læris", player1[0].l)
+                print("6.Frjósemi ", player1[0].g)
+                print("7.Gerð/Þykkt bakvöðva ", player1[0].ba)
+                print("8.Einkunn fyrir malir", player1[0].ma)
+                while flag:
+                    val=int(input("veldu flokk til að keppa í"))
+                    if val >0 and val<9:
+                        flag=False
+                print("\n")
+                
+
+
+
+
+
+
+
+
+
 
