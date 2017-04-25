@@ -10,3 +10,5 @@ lagaði kóðan  frá því að ég var bara að brainstorma áfram og vinna
 4commit:valmynd buinn til 
 
 5commit:valmynd breytt
+
+6commit:farinn að bera saman eiginleika spila 

@@ -113,27 +113,52 @@ while svar!=3:
             del stokkur[rt]  # spilinu er eyttt úr stokknum
 
         tkast=randint(1,2)#kastað uppá hver byrjar
-
+        valmynd=["ekkert","Þyng í kílóum","Mjólkurlagni dætra ","Einkunn ullar ","Fjöldi afkvæma ","Einkunn læris","Frjósemi ","Gerð/Þykkt bakvöðva ","Einkunn fyrir malir"]#listi til að geta kallað í það sem valið var
+        hlutur1=[player1[0].n,player1[0].t,player1[0].mj,player1[0].u,player1[0].bo,player1[0].l,player1[0].g,player1[0].ba,player1[0].ma]#einföld leið til að sækja valið er
+        hlutur2=[player2[0].n,player2[0].t,player2[0].mj,player2[0].u,player2[0].bo,player2[0].l,player2[0].g,player2[0].ba,player2[0].ma]#
         if tkast==1:
             flag=True
-            print("þú byrjar")
-            gera=input("Yttu á d til að draga spil")
-            if gera=="d":
-                print("Hrúturinn heitir ",player1[0].n)
-                print("1.Þyng í kílóum ",player1[0].t)
-                print("2.Mjólkurlagni dætra ", player1[0].mj)
-                print("3.Einkunn ullar ", player1[0].u)
-                print("4.fjöldi afkvæma ", player1[0].bo)
-                print("5.Einkunn læris", player1[0].l)
-                print("6.Frjósemi ", player1[0].g)
-                print("7.Gerð/Þykkt bakvöðva ", player1[0].ba)
-                print("8.Einkunn fyrir malir", player1[0].ma)
-                while flag:
-                    val=int(input("veldu flokk til að keppa í"))
-                    if val >0 and val<9:
-                        flag=False
+            print("þú byrjar")#valmynd fyrir spilin
+            gera=input("Yttu á eitthvað til að draga spil")
+            print("\n")
+            print("Hrúturinn heitir ",player1[0].n)
+            print("1.Þyng í kílóum ",player1[0].t)
+            print("2.Mjólkurlagni dætra ", player1[0].mj)
+            print("3.Einkunn ullar ", player1[0].u)
+            print("4.Fjöldi afkvæma ", player1[0].bo)
+            print("5.Einkunn læris", player1[0].l)
+            print("6.Frjósemi ", player1[0].g)
+            print("7.Gerð/Þykkt bakvöðva ", player1[0].ba)
+            print("8.Einkunn fyrir malir", player1[0].ma)
+            print("\n")
+            while flag:#.artil valið er rétt
+                val=int(input("veldu flokk til að keppa í"))
+                if val >0 and val<9:
+                    flag=False
                 print("\n")
-                
+
+            print("þú valdir ",valmynd[val],"sem er ",hlutur1[val])#prentar út það sem valið er
+            print("tölvan dregur spil ")
+            print("Hrúturinn heitir ", hlutur2[0])
+            print("og ",valmynd[val]," er ",hlutur2[val])
+            if hlutur1[val]>hlutur2[val]:#ef þú ert með hærri einkunn
+                print("hruturinn þinn var með hærri einkunn og þarmeð eignast þú hrútinn ",hlutur2[0])
+                player1.append(player2[0])#bætir við hjá þer
+                player2.remove(player2[0])#eyðir hjá hinum
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
