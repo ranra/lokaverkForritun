@@ -12,3 +12,5 @@ lagaði kóðan  frá því að ég var bara að brainstorma áfram og vinna
 5commit:valmynd breytt
 
 6commit:farinn að bera saman eiginleika spila 
+
+7commit: spilið farið af stað og virkar
