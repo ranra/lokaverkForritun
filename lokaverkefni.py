@@ -1,17 +1,18 @@
+from random import *
 listi=[]
-tala1=[]
-listi2=[]
+tlisti=[]
+nlisti=[]
 nofn=[]
 hrutar=[]
 
 tolvan=[]
-eg=[]
+player1=[]
 
 
 
-t=0
 
-class Hrutar(object):
+
+class Hrutar(object):#smiðurinn
     def __init__(self,nafn,thyngd,mjolk,ull,born,laeri,gredda,bak,malir):
         self.n=nafn
         self.t=thyngd
@@ -25,47 +26,44 @@ class Hrutar(object):
 
 
 
-class Hrutur(Hrutar):
+class Hrutur(Hrutar):#classi  gerður svo að objectið heiti hrutar
     def typa(self):
         return
 
 
 
 
-with open("hrutar2.txt","r") as f:
+with open("hrutar2.txt","r") as f:# opnar hruta file-inn
     lina=f.read()
-    listi = lina.split(",")
-    print(listi)
-for x in listi:
-    print(x)
+    listi = lina.split(",")# nær kommunni burt
 
+
+t=0
 for x in listi:
     if t%9 !=0:
-        tala1.append(x)
+        tlisti.append(x)#tek tölurnar og set í sér lista
     elif t%9==0:
-        listi2.append(x)
-
-
+        nlisti.append(x)#tek nöfnin og set í annan lista
     t+=1
-tolur=list(map(float,tala1))
-print(tala1)
-print(listi2)
-f=1
-nofn.append(listi2[0])
-for x in listi2:
+
+tolur=list(map(float,tlisti))#breyti tölunum í float
+
+
+t=1
+nofn.append(nlisti[0])#fyrsta nafn  var venjulegt svo ég bæti þvi við útfyrir loop
+for x in nlisti:#tek út /n fyrir framan öll nofn
     listi
-    if f>1:
+    if t>1:
         nofn.append(x[1:])
+    t+=1
+nofn.remove(x[-1])# tek út seinasta stak
 
-    f+=1
-nofn.remove(x[-1])
-print(nofn)
 
-from random import *
+
 t=0
 tala=[]
 tolur=[]
-for x in tala1:
+for x in tlisti:#set fram loopu með teljara til að ná saman 8 stökum og setja saman i lista inni lista
     if t<8:
         tala.append(x)
         t+=1
@@ -74,42 +72,31 @@ for x in tala1:
         tala=[]
         tala.append(x)
         t=1
-tolur.append(tala1[-8:])
+tolur.append(tlisti[-8:])#loopan skildi eftir seinustu 8 tölurnar svo ég redda þvi svona
 
 
 
 
-print (len(tolur))
-print(tolur)
-print (len(nofn))
+
 t=0
-print(nofn[0],tolur[t][0],tolur[t][1],tolur[t][2],tolur[t][3],tolur[t][4],tolur[t][5],tolur[t][6],tolur[t][7])
 for i in range(52):
     hrutur=Hrutur(nofn[t],tolur[t][0],tolur[t][1],tolur[t][2],tolur[t][3],tolur[t][4],tolur[t][5],tolur[t][6],tolur[t][7])
     hrutar.append(hrutur)
-
     t+=1
-print(len(hrutar))
-flag=True
 
-talnalisti=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51]
-print(talnalisti[3])
-while flag :
-    a=len(talnalisti)+1
-    rt=randrange(0,a)
 
-    print(rt)
-    print(talnalisti[rt])
-    if len(eg)<=26:
-            eg.append(hrutar[rt])
-            del talnalisti[rt]
-            print(eg)
-            print(talnalisti)
-            print(eg)
 
-    elif len(eg)>26:
-        tolvan.append(hrutar[rt])
-        del talnalisti[rt]
+stokkur=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51]#þetta eru öll spilin
 
+while len(player1)<26 :#tek 26 random spil  og læt í stokk eitt
+    a=len(stokkur)#hversu morg spil eru eftir í stokknum
+    rt=randrange(0,a)#random tala frá null og uppí fjölda spila
+    player1.append(hrutar[rt])#fyrsti stokkur fær random spil
+
+    del stokkur[rt]#spilinu er eyttt úr stokknum
+    print(player1)
+    print(stokkur)
+    print (len(player1))
+    print(len(stokkur))
 
 
