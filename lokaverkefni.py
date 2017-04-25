@@ -6,8 +6,6 @@ nlisti=[]
 nofn=[]
 hrutar=[]
 geymsla=[]
-player1=[]
-player2=[]
 
 
 
@@ -84,6 +82,7 @@ t=0
 for i in range(52):#bý til  hrúta spilin og læt þau í  lista
     hrutur=Hrutur(nofn[t],tolur[t][0],tolur[t][1],tolur[t][2],tolur[t][3],tolur[t][4],tolur[t][5],tolur[t][6],tolur[t][7])
     hrutar.append(hrutur)
+
     t+=1#nota teljara til að halda öllu saman
 
 
@@ -100,33 +99,36 @@ while flag:
 
 
     if svar ==1:
+        player1 = []
+        player2 = []
         while len(stokkur) != 0:  # læt renna meðan stokkurinn er ekki tomur
             a = len(stokkur)  # hversu morg spil eru eftir í stokknum
             rt = randrange(0, a)  # random tala frá null og uppí fjölda spila
+            nt=stokkur[rt]#spilið sjálft
             if len(player1) < 26:
-                player1.append(hrutar[rt])  # fyrsti stokkur fær 26 random spil
+                player1.append(hrutar[nt])
+                print(hrutar[nt])# fyrsti stokkur fær 26 random spil
 
             else:
-                player2.append(hrutar[rt])  # annar stokkur fær 26 random spil
+                player2.append(hrutar[nt])  # annar stokkur fær 26 random spil
 
 
-            del stokkur[rt]  # spilinu er eyttt úr stokknum
+            del stokkur[rt]  # spilinu er eytt úr stokknum
 
         tkast=randint(1,2)#kastað uppá hver byrjar
         valmynd=["ekkert","Þyng í kílóum","Mjólkurlagni dætra ","Einkunn ullar ","Fjöldi afkvæma ","Einkunn læris","Frjósemi ","Gerð/Þykkt bakvöðva ","Einkunn fyrir malir"]#listi til að geta kallað í það sem valið var
-
 
         while len(player1)!=0 or len(player2)!=0:
             hlutur1 = [player1[0].n, player1[0].t, player1[0].mj, player1[0].u, player1[0].bo, player1[0].l,player1[0].g, player1[0].ba, player1[0].ma]  # einföld leið til að sækja valið er
             hlutur2 = [player2[0].n, player2[0].t, player2[0].mj, player2[0].u, player2[0].bo, player2[0].l,player2[0].g, player2[0].ba, player2[0].ma]  #
 
-            if tkast==1:
+            if tkast==1:#þá fær spilari 1 að gera
                 flag=True
-                fj = len(geymsla)
+                fj = len(geymsla)#til að geta gefið upp hversu margir hrútar í geymslu
                 print("þú átt að gera")#valmynd fyrir spilin
-                gera=input("enter til að draga spil")
+                gera=input("a til að draga spil")
                 print("\n")
-                print("Hrúturinn heitir ",player1[0].n)
+                print("Hrúturinn heitir ",player1[0].n)#allar upplýsingar um spilið gefnar upp
                 print("1.Þyng í kílóum ",player1[0].t)
                 print("2.Mjólkurlagni dætra ", player1[0].mj)
                 print("3.Einkunn ullar ", player1[0].u)
@@ -136,7 +138,7 @@ while flag:
                 print("7.Gerð/Þykkt bakvöðva ", player1[0].ba)
                 print("8.Einkunn fyrir malir", player1[0].ma)
                 print("\n")
-                while flag:#.artil valið er rétt
+                while flag:#þartil valið er rétt
                     val=int(input("veldu flokk til að keppa í"))
                     if val >0 and val<9:
                         flag=False
@@ -158,13 +160,13 @@ while flag:
                     print(len(geymsla))
                     print(len(player1))
                     print(len(player2))
-                    if len(geymsla)!=0:
+                    if len(geymsla)!=0:# ef eitthver spil eru i geymslu eftir jafntefli
                         for x in geymsla:
                             player1.append(x)
                         print("og þú vannst", fj, "hrúta úr jafnteflinu")
                         geymsla=[]
 
-                    tkast=1
+
 
                     print(len(player1))
                     print(len(player2))
@@ -186,7 +188,7 @@ while flag:
                     print(len(geymsla))
 
                     print(geymsla)
-                    tkast = 1
+
                     p=1
 
                 if hlutur2[val] > hlutur1[val]:
@@ -218,7 +220,7 @@ while flag:
             elif tkast==2:
                 flag = True
                 fj = len(geymsla)
-                gera=input("tölvan á að gera og dregur spil..(enter til að halda áfram)")  # valmynd fyrir spilin
+                gera=input("tölvan á að gera og dregur spil..(a til að halda áfram)")  # valmynd fyrir spilin
                 print("\n")
                 print("Hrúturinn heitir ", player2[0].n)
                 print("1.Þyng í kílóum ", player2[0].t)
@@ -253,7 +255,7 @@ while flag:
                             player2.append(x)
                         print("og þú vannst", fj, "hrúta úr jafnteflinu")
                         geymsla = []
-                    tkast =2
+
                     print(len(player1))
                     print(len(player2))
                     print(len(geymsla))
@@ -274,7 +276,7 @@ while flag:
                     print(len(player1))
                     print(len(player2))
                     print(len(geymsla))
-                    tkast=2
+
 
 
 

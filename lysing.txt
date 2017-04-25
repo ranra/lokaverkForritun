@@ -18,3 +18,5 @@ lagaði kóðan  frá því að ég var bara að brainstorma áfram og vinna
 8commit:byrjaður að vinna í jafntefli
 
 9commit:ég get spilað við tölvuna  leikurinn er eiginlega klár núna er bara að fínpússa
+
+10commit: buinn að fínpússa smá
