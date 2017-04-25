@@ -1,4 +1,5 @@
 from random import *
+stokkur=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51]#þetta eru öll spilin
 listi=[]
 tlisti=[]
 nlisti=[]
@@ -86,20 +87,27 @@ for i in range(52):#bý til  hrúta spilin og læt þau í  lista
 
 
 
-stokkur=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51]#þetta eru öll spilin
-
-while len(stokkur)!=0 :#læt renna meðan stokkurinn er ekki tomur
-    a = len(stokkur)  # hversu morg spil eru eftir í stokknum
-    rt = randrange(0, a)  # random tala frá null og uppí fjölda spila
-    if len(player1)<26:
-        player1.append(hrutar[rt])#fyrsti stokkur fær 26 random spil
-        print(len(player1))
-    else:
-        player2.append(hrutar[rt])  # annar stokkur fær 26 random spil
-        print(len(player2))
 
 
-    del stokkur[rt]#spilinu er eyttt úr stokknum
-print (len(stokkur))
-print(player1)
-print(player2)
+
+
+svar=0
+while svar!=3:
+    print("hrútaspilið er góð skemmtun")
+    print("veldu 1 til að keppa á móti tölvunni")
+    svar=int(input(">>"))
+
+
+    if svar ==1:
+        while len(stokkur) != 0:  # læt renna meðan stokkurinn er ekki tomur
+            a = len(stokkur)  # hversu morg spil eru eftir í stokknum
+            rt = randrange(0, a)  # random tala frá null og uppí fjölda spila
+            if len(player1) < 26:
+                player1.append(hrutar[rt])  # fyrsti stokkur fær 26 random spil
+                print(len(player1))
+            else:
+                player2.append(hrutar[rt])  # annar stokkur fær 26 random spil
+                print(len(player2))
+
+            del stokkur[rt]  # spilinu er eyttt úr stokknum
+
