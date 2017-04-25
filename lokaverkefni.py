@@ -64,7 +64,7 @@ nofn.remove(x[-1])# tek út seinasta stak
 t=0
 tala=[]
 tolur=[]
-print(tolur)
+
 for x in tlisti:#set fram loopu með teljara til að ná saman 8 stökum og setja saman i lista inni lista
     if t<8:
         tala.append(x)
@@ -105,10 +105,10 @@ while flag:
             rt = randrange(0, a)  # random tala frá null og uppí fjölda spila
             if len(player1) < 26:
                 player1.append(hrutar[rt])  # fyrsti stokkur fær 26 random spil
-                print(len(player1))
+
             else:
                 player2.append(hrutar[rt])  # annar stokkur fær 26 random spil
-                print(len(player2))
+
 
             del stokkur[rt]  # spilinu er eyttt úr stokknum
 
@@ -121,8 +121,8 @@ while flag:
             hlutur2 = [player2[0].n, player2[0].t, player2[0].mj, player2[0].u, player2[0].bo, player2[0].l,player2[0].g, player2[0].ba, player2[0].ma]  #
 
             if tkast==1:
-
                 flag=True
+                fj = len(geymsla)
                 print("þú átt að gera")#valmynd fyrir spilin
                 gera=input("enter til að draga spil")
                 print("\n")
@@ -154,22 +154,40 @@ while flag:
                     player1.append(player2[0])#bætir við hjá þer
                     player1.append(player1[0])
                     player1.remove(player1[0])
-
                     player2.remove(player2[0])#eyðir hjá hinum
-                    tkast=1
+                    print(len(geymsla))
                     print(len(player1))
                     print(len(player2))
+                    if len(geymsla)!=0:
+                        for x in geymsla:
+                            player1.append(x)
+                        print("og þú vannst", fj, "hrúta úr jafnteflinu")
+                        geymsla=[]
+
+                    tkast=1
+
+                    print(len(player1))
+                    print(len(player2))
+                    print(len(geymsla))
                     print("\n")
 
                 if hlutur1[val]==hlutur2[val]:
+                    print(len(geymsla))
+                    print(len(player1))
+                    print(len(player2))
                     geymsla.append(player1[0])
                     geymsla.append(player2[0])
                     player1.remove(player1[0])
                     player2.remove(player2[0])
-                    print("þið voruð jafnir", hlutur1[val], hlutur2[val])
+                    print("þið voruð jafnir", hlutur1[0], " var með ", hlutur1[val], " og ", hlutur2[0], "var með",hlutur2[val])
+
+                    print(len(player1))
+                    print(len(player2))
+                    print(len(geymsla))
 
                     print(geymsla)
                     tkast = 1
+                    p=1
 
                 if hlutur2[val] > hlutur1[val]:
                     print("hrútur tölvunar var með hærri einkunn og þarmeð eignast hún hrútinn ", hlutur1[0])
@@ -177,8 +195,20 @@ while flag:
                     player2.append(player2[0])
                     player2.remove(player2[0])
                     player1.remove(player1[0])  # eyðir hjá hinum
+                    print(len(geymsla))
                     print(len(player1))
                     print(len(player2))
+
+                    if len(geymsla)!=0:
+                        for x in geymsla:
+                            player2.append(x)
+                        print("og þú vannst",fj,"hrúta úr jafnteflinu")
+                        geymsla = []
+
+
+                    print(len(player1))
+                    print(len(player2))
+                    print(len(geymsla))
                     print("\n")
                     tkast=2
 
@@ -186,8 +216,8 @@ while flag:
 
 
             elif tkast==2:
-
                 flag = True
+                fj = len(geymsla)
                 gera=input("tölvan á að gera og dregur spil..(enter til að halda áfram)")  # valmynd fyrir spilin
                 print("\n")
                 print("Hrúturinn heitir ", player2[0].n)
@@ -215,20 +245,37 @@ while flag:
                     player2.append(player2[0])
                     player2.remove(player2[0])
                     player1.remove(player1[0])  # eyðir hjá hinum
+                    print(len(geymsla))
+                    print(len(player1))
+                    print(len(player2))
+                    if len(geymsla)!=0:
+                        for x in geymsla:
+                            player2.append(x)
+                        print("og þú vannst", fj, "hrúta úr jafnteflinu")
+                        geymsla = []
                     tkast =2
                     print(len(player1))
                     print(len(player2))
+                    print(len(geymsla))
                     print("\n")
 
                 if hlutur1[val]==hlutur2[val]:
+                    print(len(geymsla))
+                    print(len(player1))
+                    print(len(player2))
                     geymsla.append(player1[0])
                     geymsla.append(player2[0])
                     player1.remove(player1[0])
                     player2.remove(player2[0])
-                    print("þið voruð jafnir",hlutur1[val],hlutur2[val])
 
-                    print(geymsla)
+                    print("þið voruð jafnir",hlutur2[0]," var með ",hlutur2[val]," og ",hlutur1[0],"var með",hlutur1[val])
+
+
+                    print(len(player1))
+                    print(len(player2))
+                    print(len(geymsla))
                     tkast=2
+
 
 
                 if hlutur2[val] < hlutur1[val]:  # ef þú ert með hærri einkunn
@@ -237,10 +284,26 @@ while flag:
                     player1.append(player1[0])
                     player1.remove(player1[0])
                     player2.remove(player2[0])  # eyðir hjá hinum
+                    print(len(geymsla))
                     print(len(player1))
                     print(len(player2))
+                    if len(geymsla)!=0:
+                        for x in geymsla:
+                            player1.append(x)
+                        print("og þú vannst", fj, "hrúta úr jafnteflinu")
+                        geymsla = []
+
+
+                    print(len(player1))
+                    print(len(player2))
+                    print(len(geymsla))
+
                     print("\n")
                     tkast = 1
+
+
+
+
 
 
 

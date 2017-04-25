@@ -16,3 +16,5 @@ lagaði kóðan  frá því að ég var bara að brainstorma áfram og vinna
 7commit: spilið farið af stað og virkar
 
 8commit:byrjaður að vinna í jafntefli
+
+9commit:ég get spilað við tölvuna  leikurinn er eiginlega klár núna er bara að fínpússa
