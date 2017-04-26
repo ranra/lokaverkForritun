@@ -32,7 +32,7 @@ class Hrutur(Hrutar):#classi  gerður svo að objectið heiti hrutar
 
 
 def deiling(a):
-    utkoma=52/a
+    utkoma=52//a
     return utkoma
 
 
@@ -314,27 +314,52 @@ while flag:
                     tkast = 1
 
 
-    elif val=="2":
+    elif svar=="2":
+        stokkur = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27,28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50,51]  # þetta eru öll spilin
+
+        player1=[]
+        player2=[]
+        player3=[]
+        player4=[]
+        player5=[]
         print("veldu fjölda spilara frá 2-5")
         fjoldi=int(input(">>"))
         afgangur=52%fjoldi
-        lengd=len(stokkur)-afgangur
+        lengd = (len(stokkur) - afgangur)
 
         skipta = deiling(fjoldi)  # deilt spilum milli spilara
         while lengd != 0:  # læt renna meðan stokkurinn er ekki tomur
-            a = len(stokkur)  # hversu morg spil eru eftir í stokknum
-            rt = randrange(0, a)  # random tala frá null og uppí fjölda spila
-            nt = stokkur[rt]  # spilið sjálft
+            a=len(stokkur)-afgangur  # hversu morg spil eru eftir í stokknum
+            rt=randrange(0,a)  # random tala frá null og uppí fjölda spila
+            nt=stokkur[rt]  # spilið sjálft
+
             if len(player1) < skipta:  # skipt spilum eftir fjölda spilara
                 player1.append(hrutar[nt])  # fyrsti stokkur fær 26 random spil
-                print(nt, end=" ")
 
-            else:
+
+            elif len(player2) <skipta:
                 player2.append(hrutar[nt])  # annar stokkur fær 26 random spil
 
-                print(nt, end=": ")
+
+            elif len(player3) < skipta:
+                player3.append(hrutar[nt])  # annar stokkur fær 26 random spil
+
+
+            elif len(player4) < skipta:
+                player4.append(hrutar[nt])  # annar stokkur fær 26 random spil
+
+
+            elif len(player5) <skipta:
+                player5.append(hrutar[nt])  # annar stokkur fær 26 random spil
+
 
             del stokkur[rt]  # spilinu er eytt úr stokknum
+            lengd = (len(stokkur) - afgangur)
+            print(len(player1))
+            print(len(player2))
+            print(len(player3))
+            print(len(player4))
+            print(len(player5))
 
 
 
