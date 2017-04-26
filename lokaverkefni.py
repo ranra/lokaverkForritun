@@ -1,5 +1,6 @@
 from random import *
 stokkur=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51]#þetta eru öll spilin
+valmynd=["ekkert","Þyng í kílóum","Mjólkurlagni dætra ","Einkunn ullar ","Fjöldi afkvæma ","Einkunn læris","Frjósemi ","Gerð/Þykkt bakvöðva ","Einkunn fyrir malir"]#listi til að geta kallað í það sem valið var
 listi=[]
 tlisti=[]
 nlisti=[]
@@ -30,12 +31,16 @@ class Hrutur(Hrutar):#classi  gerður svo að objectið heiti hrutar
         return
 
 
+def deiling(a):
+    utkoma=52/a
+    return utkoma
+
 
 
 with open("hrutar2.txt","r") as f:# opnar hruta file-inn
     lina=f.read()
     listi = lina.split(",")# nær kommunni burt
-
+    print(listi)
 
 t=0
 for x in listi:
@@ -46,17 +51,17 @@ for x in listi:
     t+=1
 
 tlisti=list(map(float,tlisti))#breyti tölunum í float
-
-
+print(tlisti)
+print(nlisti)
 t=1
 nofn.append(nlisti[0])#fyrsta nafn  var venjulegt svo ég bæti þvi við útfyrir loop
+
 for x in nlisti:#tek út /n fyrir framan öll nofn
-    listi
     if t>1:
         nofn.append(x[1:])
     t+=1
-nofn.remove(x[-1])# tek út seinasta stak
-
+nofn.remove(nofn[-1])# tek út seinasta stak
+print(nofn)
 
 
 t=0
@@ -95,28 +100,33 @@ flag=True
 while flag:
     print("hrútaspilið er góð skemmtun")
     print("veldu 1 til að keppa á móti tölvunni")
-    svar=int(input(">>"))
+    print("veldu 2 til að keppa á móti tölvunni")
+    svar=input(">>")
 
 
-    if svar ==1:
+    if svar =="1":
         player1 = []
         player2 = []
+        skipta=deiling(2)#deilt spilum milli spilara
         while len(stokkur) != 0:  # læt renna meðan stokkurinn er ekki tomur
             a = len(stokkur)  # hversu morg spil eru eftir í stokknum
             rt = randrange(0, a)  # random tala frá null og uppí fjölda spila
             nt=stokkur[rt]#spilið sjálft
-            if len(player1) < 26:
-                player1.append(hrutar[nt])
-                print(hrutar[nt])# fyrsti stokkur fær 26 random spil
+            if len(player1) < skipta:#skipt spilum eftir fjölda spilara
+                player1.append(hrutar[nt])# fyrsti stokkur fær 26 random spil
+                print(nt,end=" ")
 
             else:
                 player2.append(hrutar[nt])  # annar stokkur fær 26 random spil
+
+                print(nt,end=": ")
 
 
             del stokkur[rt]  # spilinu er eytt úr stokknum
 
         tkast=randint(1,2)#kastað uppá hver byrjar
-        valmynd=["ekkert","Þyng í kílóum","Mjólkurlagni dætra ","Einkunn ullar ","Fjöldi afkvæma ","Einkunn læris","Frjósemi ","Gerð/Þykkt bakvöðva ","Einkunn fyrir malir"]#listi til að geta kallað í það sem valið var
+
+
 
         while len(player1)!=0 or len(player2)!=0:
             hlutur1 = [player1[0].n, player1[0].t, player1[0].mj, player1[0].u, player1[0].bo, player1[0].l,player1[0].g, player1[0].ba, player1[0].ma]  # einföld leið til að sækja valið er
@@ -126,7 +136,7 @@ while flag:
                 flag=True
                 fj = len(geymsla)#til að geta gefið upp hversu margir hrútar í geymslu
                 print("þú átt að gera")#valmynd fyrir spilin
-                gera=input("a til að draga spil")
+                gera=input("ýttu á 3 til að draga spil")
                 print("\n")
                 print("Hrúturinn heitir ",player1[0].n)#allar upplýsingar um spilið gefnar upp
                 print("1.Þyng í kílóum ",player1[0].t)
@@ -220,7 +230,7 @@ while flag:
             elif tkast==2:
                 flag = True
                 fj = len(geymsla)
-                gera=input("tölvan á að gera og dregur spil..(a til að halda áfram)")  # valmynd fyrir spilin
+                gera=input("tölvan á að gera og dregur spil..(ýttu á 3 til að halda áfram)")  # valmynd fyrir spilin
                 print("\n")
                 print("Hrúturinn heitir ", player2[0].n)
                 print("1.Þyng í kílóum ", player2[0].t)
@@ -237,7 +247,7 @@ while flag:
 
                 print("tölvan valdi ", valmynd[val], "sem er ", hlutur2[val])  # prentar út það sem valið er
                 print("\n")
-                draga=input("dragðu spil ")
+                draga=input("ýttu á 3 til að draga spil ")
                 print("Hrúturinn heitir ", hlutur1[0],"og hefur",valmynd[val]," ",hlutur1[val])
                 print("\n")
 
@@ -292,7 +302,7 @@ while flag:
                     if len(geymsla)!=0:
                         for x in geymsla:
                             player1.append(x)
-                        print("og þú vannst", fj, "hrúta úr jafnteflinu")
+                        print("og hún vann", fj, "hrúta úr jafnteflinu")
                         geymsla = []
 
 
@@ -304,6 +314,27 @@ while flag:
                     tkast = 1
 
 
+    elif val=="2":
+        print("veldu fjölda spilara frá 2-5")
+        fjoldi=int(input(">>"))
+        afgangur=52%fjoldi
+        lengd=len(stokkur)-afgangur
+
+        skipta = deiling(fjoldi)  # deilt spilum milli spilara
+        while lengd != 0:  # læt renna meðan stokkurinn er ekki tomur
+            a = len(stokkur)  # hversu morg spil eru eftir í stokknum
+            rt = randrange(0, a)  # random tala frá null og uppí fjölda spila
+            nt = stokkur[rt]  # spilið sjálft
+            if len(player1) < skipta:  # skipt spilum eftir fjölda spilara
+                player1.append(hrutar[nt])  # fyrsti stokkur fær 26 random spil
+                print(nt, end=" ")
+
+            else:
+                player2.append(hrutar[nt])  # annar stokkur fær 26 random spil
+
+                print(nt, end=": ")
+
+            del stokkur[rt]  # spilinu er eytt úr stokknum
 
 
 
@@ -322,6 +353,11 @@ while flag:
 
 
 
+
+
+
+    else:
+        print("úps eh fór úrskeiðis")
 
 
 
